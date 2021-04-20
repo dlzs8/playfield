@@ -1,3 +1,18 @@
+// Variable name convention checker
+
 function variableName(name) {
-    return !!name.match(/^[a-zA-Z_][a-zA-Z0-9_]*$/g)
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    let newString = '';
+
+    name.split('').forEach(letter => {
+        newString += alphabet[alphabet.indexOf(letter) + 1 >= alphabet.length ? 0 : alphabet.indexOf(letter) + 1];
+    });
+
+    return newString;
 }
+
+console.log(
+    variableName(
+        'crazy'
+    )
+)
